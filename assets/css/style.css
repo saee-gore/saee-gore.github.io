@@ -1,0 +1,470 @@
+/* ================================================================
+   Saee Gore — Portfolio Stylesheet
+   Structure:
+     1. Reset
+     2. Design tokens
+     3. Base
+     4. Background effects
+     5. Hero
+     6. Nav buttons
+     7. Social strip
+     8. Panel overlay
+     9. Panels (shared)
+    10. Projects panel
+    11. Skills section
+    12. Resume panel
+    13. Contact panel
+    14. Form success state
+    15. Animations
+    16. Scrollbar
+    17. Mobile / responsive
+================================================================ */
+
+
+/* ── 1. Reset ──────────────────────────────────────────────── */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+
+/* ── 2. Design tokens ──────────────────────────────────────── */
+:root {
+  --bg:          #0B0E14;
+  --surface:     #13171F;
+  --surface2:    #1C2130;
+  --border:      rgba(255,255,255,0.08);
+  --border-mid:  rgba(255,255,255,0.14);
+  --ink:         #F0EDE8;
+  --ink-mid:     rgba(240,237,232,0.6);
+  --ink-dim:     rgba(240,237,232,0.35);
+  --accent:      #4F8EF7;
+  --accent-glow: rgba(79,142,247,0.18);
+  --teal:        #3ECFA0;
+  --teal-dim:    rgba(62,207,160,0.12);
+  --serif:       'Playfair Display', Georgia, serif;
+  --sans:        'Figtree', system-ui, sans-serif;
+  --ease:        cubic-bezier(0.22,1,0.36,1);
+  --panel-w:     min(640px, 92vw);
+}
+
+
+/* ── 3. Base ───────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  min-height: 100vh;
+  overflow: hidden;
+}
+body.panel-open { overflow: hidden; }
+
+
+/* ── 4. Background effects ─────────────────────────────────── */
+.bg-grid {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(79,142,247,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,142,247,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridDrift 40s linear infinite;
+}
+@keyframes gridDrift {
+  from { background-position: 0 0; }
+  to   { background-position: 60px 60px; }
+}
+
+.bg-orb {
+  position: fixed; pointer-events: none; z-index: 0;
+  border-radius: 50%; filter: blur(120px);
+}
+.orb1 { width:600px; height:600px; top:-200px;  right:-150px; background: rgba(79,142,247,0.07); }
+.orb2 { width:500px; height:500px; bottom:-150px; left:-100px; background: rgba(62,207,160,0.05); }
+
+
+/* ── 5. Hero ───────────────────────────────────────────────── */
+#hero {
+  position: fixed; inset: 0; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0;
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.hero-eyebrow {
+  font-family: var(--sans); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 10px;
+  animation: fadeUp 0.7s 0.1s var(--ease) both;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: ''; display: block;
+  width: 28px; height: 1px;
+  background: var(--teal); opacity: 0.5;
+}
+
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(52px, 8vw, 90px);
+  font-weight: 400; line-height: 1.0; letter-spacing: -0.02em;
+  color: var(--ink); text-align: center;
+  animation: fadeUp 0.7s 0.2s var(--ease) both;
+}
+.hero-name span { font-style: italic; color: var(--accent); }
+
+.hero-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, var(--border-mid), transparent);
+  margin: 2rem auto;
+  animation: fadeUp 0.5s 0.35s var(--ease) both;
+}
+
+.hero-tagline {
+  font-family: var(--serif);
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-style: italic; color: var(--ink-mid);
+  text-align: center; max-width: 520px; line-height: 1.5;
+  animation: fadeUp 0.7s 0.4s var(--ease) both;
+}
+
+.hero-tagsubline {
+  font-family: var(--sans); font-size: 12px; font-weight: 400;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-dim); text-align: center;
+  margin-top: 10px;
+  animation: fadeUp 0.7s 0.48s var(--ease) both;
+}
+
+.hero-pills {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  justify-content: center; margin-top: 2rem;
+  animation: fadeUp 0.6s 0.5s var(--ease) both;
+}
+.hero-pill {
+  font-size: 11px; font-weight: 400; letter-spacing: 0.06em;
+  padding: 5px 14px; border-radius: 99px;
+  border: 1px solid var(--border-mid);
+  color: var(--ink-dim);
+}
+
+
+/* ── 6. Nav buttons ────────────────────────────────────────── */
+.hero-nav {
+  display: flex; gap: 12px; margin-top: 2.5rem;
+  animation: fadeUp 0.6s 0.6s var(--ease) both;
+}
+
+.nav-btn {
+  position: relative;
+  padding: 13px 28px; border-radius: 10px;
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.04em; cursor: pointer;
+  border: 1px solid var(--border-mid);
+  background: transparent; color: var(--ink-mid);
+  transition: all 0.25s var(--ease);
+  text-transform: none;
+}
+.nav-btn:hover {
+  border-color: var(--accent); color: var(--ink);
+  background: var(--accent-glow);
+}
+.nav-btn.primary {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+.nav-btn.primary:hover { background: #3a7de8; border-color: #3a7de8; }
+
+
+/* ── 7. Social strip ───────────────────────────────────────── */
+.social-strip {
+  position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  z-index: 2; display: flex; align-items: center; gap: 20px;
+  animation: fadeUp 0.6s 0.75s var(--ease) both;
+}
+.social-link {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; color: var(--ink-dim); text-decoration: none;
+  transition: color 0.2s; letter-spacing: 0.04em;
+}
+.social-link:hover { color: var(--ink); }
+.social-link svg {
+  width: 15px; height: 15px; stroke: currentColor; fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.social-sep { width: 1px; height: 16px; background: var(--border-mid); }
+
+
+/* ── 8. Panel overlay ──────────────────────────────────────── */
+#overlay {
+  position: fixed; inset: 0; z-index: 5;
+  background: rgba(11,14,20,0.7);
+  backdrop-filter: blur(4px);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+}
+#overlay.active { opacity: 1; pointer-events: all; }
+
+
+/* ── 9. Panels (shared) ────────────────────────────────────── */
+.panel {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: var(--panel-w); z-index: 6;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  transform: translateX(100%);
+  transition: transform 0.5s var(--ease);
+  overflow-y: auto;
+  display: flex; flex-direction: column;
+}
+.panel.active { transform: translateX(0); }
+
+.panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: var(--surface); z-index: 1;
+}
+.panel-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 400;
+  letter-spacing: -0.01em; color: var(--ink);
+}
+.panel-title span { font-style: italic; color: var(--accent); }
+
+.close-btn {
+  width: 36px; height: 36px; border-radius: 8px;
+  border: 1px solid var(--border); background: transparent;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--ink-mid); transition: all 0.2s; flex-shrink: 0;
+}
+.close-btn:hover { border-color: var(--border-mid); color: var(--ink); background: var(--surface2); }
+.close-btn svg {
+  width: 16px; height: 16px; stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round;
+}
+
+.panel-body { padding: 2rem 2.5rem; flex: 1; }
+
+
+/* ── 10. Projects panel ────────────────────────────────────── */
+.project-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.25s;
+}
+.project-card:hover { border-color: var(--border-mid); }
+
+.project-tag {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--teal);
+  margin-bottom: 12px; display: flex; align-items: center; gap: 6px;
+}
+.project-tag::before {
+  content: ''; display: block;
+  width: 18px; height: 1px;
+  background: var(--teal); opacity: 0.6;
+}
+
+.project-name {
+  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  color: var(--ink); margin-bottom: 10px; line-height: 1.25;
+}
+
+.project-images {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin-bottom: 16px;
+}
+.project-images img {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg); display: block;
+  transition: border-color 0.2s;
+}
+.project-images img:hover { border-color: var(--border-mid); }
+
+.project-highlight {
+  background: rgba(62,207,160,0.06);
+  border: 1px solid rgba(62,207,160,0.15);
+  border-radius: 8px; padding: 12px 14px;
+  font-size: 13px; color: rgba(62,207,160,0.85);
+  margin-bottom: 16px; line-height: 1.6;
+}
+.project-highlight strong { color: var(--teal); font-weight: 500; }
+
+.project-desc {
+  font-size: 14px; line-height: 1.75;
+  color: var(--ink-mid); margin-bottom: 16px;
+}
+.project-desc li { margin-left: 1rem; margin-bottom: 6px; }
+
+.tech-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.tech-pill {
+  font-size: 11px; padding: 3px 10px; border-radius: 99px;
+  border: 1px solid var(--border); color: var(--ink-dim);
+  background: rgba(255,255,255,0.03);
+}
+
+.project-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
+  color: var(--accent); text-decoration: none;
+  padding: 8px 16px; border-radius: 8px;
+  border: 1px solid rgba(79,142,247,0.25);
+  background: var(--accent-glow);
+  transition: all 0.2s;
+}
+.project-link:hover { background: rgba(79,142,247,0.28); border-color: rgba(79,142,247,0.5); }
+.project-link svg {
+  width: 13px; height: 13px; stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+
+/* ── 11. Skills section ────────────────────────────────────── */
+.skills-section { margin-bottom: 2rem; }
+.skills-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-dim); margin-bottom: 10px;
+}
+.skills-grid { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-chip {
+  font-size: 12px; padding: 5px 12px; border-radius: 6px;
+  border: 1px solid var(--border); color: var(--ink-mid);
+  background: var(--surface2);
+}
+
+
+/* ── 12. Resume panel ──────────────────────────────────────── */
+.resume-actions {
+  display: flex; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+.resume-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 20px; border-radius: 9px;
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  cursor: pointer; text-decoration: none; transition: all 0.2s;
+  border: 1px solid var(--border-mid); color: var(--ink-mid); background: transparent;
+}
+.resume-btn:hover { color: var(--ink); border-color: rgba(255,255,255,0.25); background: var(--surface2); }
+.resume-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.resume-btn.primary:hover { background: #3a7de8; }
+.resume-btn svg {
+  width: 14px; height: 14px; stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.resume-frame {
+  width: 100%; height: calc(100vh - 160px); min-height: 400px;
+  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+}
+.resume-frame iframe { width: 100%; height: 100%; border: none; }
+
+
+/* ── 13. Contact panel ─────────────────────────────────────── */
+.contact-intro {
+  font-size: 15px; line-height: 1.75;
+  color: var(--ink-mid); margin-bottom: 2rem;
+}
+
+.form-group { margin-bottom: 1.25rem; }
+.form-label {
+  display: block; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-dim); margin-bottom: 8px;
+}
+.form-input,
+.form-textarea {
+  width: 100%; padding: 12px 16px; border-radius: 9px;
+  border: 1px solid var(--border); background: var(--surface2);
+  color: var(--ink); font-family: var(--sans); font-size: 14px; font-weight: 300;
+  outline: none; transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+.form-input:focus,
+.form-textarea:focus { border-color: rgba(79,142,247,0.5); }
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--ink-dim); }
+.form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.submit-btn {
+  width: 100%; padding: 14px; border-radius: 10px;
+  background: var(--accent); border: none;
+  color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s; letter-spacing: 0.02em;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.submit-btn:hover { background: #3a7de8; }
+.submit-btn svg {
+  width: 15px; height: 15px; stroke: #fff; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.contact-links {
+  margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 12px;
+}
+.contact-link-item {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--ink-mid);
+  font-size: 14px; padding: 12px 14px; border-radius: 9px;
+  border: 1px solid var(--border); background: var(--surface2);
+  transition: all 0.2s;
+}
+.contact-link-item:hover { border-color: var(--border-mid); color: var(--ink); }
+.contact-link-item svg {
+  width: 16px; height: 16px; stroke: currentColor; fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  flex-shrink: 0; color: var(--accent);
+}
+.contact-link-label {
+  font-size: 11px; color: var(--ink-dim);
+  display: block; margin-top: 1px;
+}
+
+
+/* ── 14. Form success state ────────────────────────────────── */
+.form-success { display: none; text-align: center; padding: 3rem 1rem; }
+.form-success.show { display: block; }
+.form-success-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--teal-dim); border: 1px solid rgba(62,207,160,0.3);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+.form-success-icon svg {
+  width: 22px; height: 22px; stroke: var(--teal); fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.form-success h3 {
+  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  color: var(--ink); margin-bottom: 8px;
+}
+.form-success p { font-size: 14px; color: var(--ink-mid); line-height: 1.6; }
+
+
+/* ── 15. Animations ────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ── 16. Scrollbar ─────────────────────────────────────────── */
+.panel::-webkit-scrollbar { width: 4px; }
+.panel::-webkit-scrollbar-track { background: transparent; }
+.panel::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 2px; }
+
+
+/* ── 17. Mobile / responsive ───────────────────────────────── */
+@media (max-width: 600px) {
+  .hero-name   { font-size: 42px; }
+  .hero-nav    { flex-wrap: wrap; justify-content: center; }
+  .panel-body  { padding: 1.5rem; }
+  .panel-header{ padding: 1.5rem 1.5rem 1.25rem; }
+  .form-row    { grid-template-columns: 1fr; }
+  .social-strip{ gap: 14px; }
+}

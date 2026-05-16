@@ -1,109 +1,232 @@
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Saee Gore</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel = "icon" href ="/images/sg logo.png"> 
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saee Gore — DevOps Engineer</title>
+  <meta name="description" content="Saee Gore — Solutions-minded engineer with experience at Waymo, Amazon, and TabaPay. Specializing in technical operations, API integrations, and fintech systems." />
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet" />
 
-				<!-- Header -->
-					<header id="header">
-						
-						<div class="content">
-							<div class="inner"> 
-									<img src="/images/sg logo.png" style="height:60px;">
-								
-								<h1>Saee's Portfolio</h1>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#work">Projects</a></li>
-								<li><a href="#resume">Resume</a></li>
-								<li><a href="#contact">Contact</a></li>
-							</ul>
-							
-						</nav>
-						<ul class="icons">
-							<li>  <a target="_blank" href="https://www.linkedin.com/in/saee-gore/">
-								<i class="fab fa-linkedin-in"></i></a></li>
-							<li>  <a target="_blank" href="mailto:saee.a.gore@gmail.com">
-								<i class="fa fa-envelope" style="font-size:20px;color:rgb(255, 255, 255);"></i></a> </li>
-							<li> <a href="https://github.com/saee-gore" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							</ul>
-					</header>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
 
-				<!-- Main -->
-					<div id="main">
+  <!-- ── Background effects ─────────────────────────────────── -->
+  <div class="bg-grid"></div>
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
 
-					
+  <!-- ── Hero ──────────────────────────────────────────────── -->
+  <section id="hero" role="main">
+    <div class="hero-eyebrow">DevOps Engineer</div>
+    <h1 class="hero-name">Saee Gore</h1>
+    <div class="hero-line"></div>
+    <p class="hero-tagline">I bridge the gap between technical systems and the people who depend on them.</p>
+    <p class="hero-tagsubline">Ex-TabaPay &nbsp;·&nbsp; Ex-Amazon &nbsp;·&nbsp; Ex-Waymo</p>
 
-						<!-- Work -->
-							<article id="work">
-								
-								<h2 class="major">Smart Spend Dashboard</h2>
-								<img src="/images/smart-spend.png" style="height:300px; width:300px">
-								<img src="/images/claude-chatbot.png" style="height:300px; width:300px">
+    <div class="hero-pills">
+      <span class="hero-pill">Fintech · Payments</span>
+      <span class="hero-pill">Go · Python</span>
+      <span class="hero-pill">Splunk · Zendesk</span>
+      <span class="hero-pill">API · JSON</span>
+    </div>
 
-								<p> • Built a privacy-first credit card analytics dashboard using Claude AI and Node.js that analyzes spending trends, categorizes transactions, and parses financial statements entirely in-browser, ensuring zero backend data exposure.
-									<br>• Reduces financial waste through clear insights and automates analysis in ~2 minutes versus ~2 hours manually, resulting in significant time savings.</p>
-								<button type="button">	
-								<a  target="_blank" href="https://github.com/saee-gore/Smart-Spend-Dashboard">
-								View Code </a></button><br>
-								
-							</article>
-						
-						<!-- Resume -->
-							<article id="resume">
-								<h2 class="major">Resume</h2>
-								<iframe src="Saee_Gore_Resume.pdf" width="100%" height="750px" style="border: none;"> Download the PDF.</iframe>
-							</article>
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form action="https://formsubmit.co/saee.a.gore@gmail.com" method="post">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-							</article>
-					</div>
-				</div>
-		<!-- BG -->
-			<div id="bg"></div>
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <nav class="hero-nav" aria-label="Portfolio sections">
+      <button class="nav-btn" onclick="openPanel('projects')">Projects</button>
+      <button class="nav-btn" onclick="openPanel('resume')">Resume</button>
+      <button class="nav-btn primary" onclick="openPanel('contact')">Get in touch</button>
+    </nav>
+  </section>
 
-	</body>
+  <!-- ── Social strip ───────────────────────────────────────── -->
+  <div class="social-strip" aria-label="Social links">
+    <a class="social-link" href="https://www.linkedin.com/in/saee-gore/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <div class="social-sep"></div>
+    <a class="social-link" href="https://github.com/saee-gore" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+    <div class="social-sep"></div>
+    <a class="social-link" href="mailto:saee.a.gore@gmail.com" aria-label="Email">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Email
+    </a>
+  </div>
+
+  <!-- ── Overlay (closes panels on click) ───────────────────── -->
+  <div id="overlay" onclick="closeAll()" aria-hidden="true"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       PANELS
+       Each panel is an <aside> that slides in from the right.
+       To add a new panel:
+         1. Add a <button onclick="openPanel('yourname')"> in the hero nav
+         2. Copy the panel template below and set id="panel-yourname"
+  ═══════════════════════════════════════════════════════════ -->
+
+  <!-- ── Projects panel ─────────────────────────────────────── -->
+  <aside class="panel" id="panel-projects" aria-label="Projects">
+    <div class="panel-header">
+      <div class="panel-title">Selected <span>work</span></div>
+      <button class="close-btn" onclick="closeAll()" aria-label="Close panel">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="panel-body">
+
+      <!-- Project card: Smart Spend Dashboard -->
+      <div class="project-card">
+        <div class="project-tag">Featured project</div>
+        <div class="project-name">Smart Spend Dashboard</div>
+
+        <div class="project-images">
+          <img src="images/claude-chatbot.png" alt="Claude AI chatbot interface" />
+          <img src="images/smart-spend.png"    alt="Smart Spend analytics dashboard" />
+        </div>
+
+        <div class="project-highlight">
+          <strong>Impact:</strong> Reduces manual financial analysis from ~2 hours to ~2 minutes.
+          Processes statements entirely in-browser — zero backend data exposure.
+        </div>
+
+        <ul class="project-desc">
+          <li>Built a privacy-first credit card analytics dashboard using Claude AI and Node.js that analyzes spending trends and categorizes transactions from uploaded financial statements.</li>
+          <li>All parsing and AI inference happens client-side, meaning no personal financial data ever touches a server.</li>
+          <li>Designed an interactive breakdown view with category filters, monthly comparisons, and actionable spend insights.</li>
+        </ul>
+
+        <div class="tech-pills">
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">Claude AI</span>
+          <span class="tech-pill">JavaScript</span>
+          <span class="tech-pill">Privacy-first architecture</span>
+          <span class="tech-pill">Financial data parsing</span>
+        </div>
+
+        <a class="project-link" href="https://github.com/saee-gore/Smart-Spend-Dashboard" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <!-- /project-card -->
+
+      <!-- ── Skills ──────────────────────────────────────────── -->
+      <div class="skills-section">
+        <div class="skills-label">Technical skills</div>
+        <div class="skills-grid">
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">Java</span>
+          <span class="skill-chip">JavaScript</span>
+          <span class="skill-chip">REST APIs</span>
+          <span class="skill-chip">Postman</span>
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">Node.js</span>
+          <span class="skill-chip">Payment systems</span>
+          <span class="skill-chip">Incident response</span>
+          <span class="skill-chip">APIs</span>
+          <span class="skill-chip">Jira</span>
+          <span class="skill-chip">Linux / Bash</span>
+          <span class="skill-chip">Git</span>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <!-- /panel-projects -->
+
+
+  <!-- ── Resume panel ───────────────────────────────────────── -->
+  <aside class="panel" id="panel-resume" aria-label="Resume">
+    <div class="panel-header">
+      <div class="panel-title">My <span>resume</span></div>
+      <button class="close-btn" onclick="closeAll()" aria-label="Close panel">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="panel-body">
+      <div class="resume-actions">
+        <a class="resume-btn primary" href="Saee_Gore_Resume.pdf" download>
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+        <a class="resume-btn" href="Saee_Gore_Resume.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Open in new tab
+        </a>
+      </div>
+      <div class="resume-frame">
+        <iframe src="Saee_Gore_Resume.pdf" title="Saee Gore Resume">
+          <p>PDF preview unavailable. <a href="Saee_Gore_Resume.pdf" download style="color:var(--accent)">Download the resume here.</a></p>
+        </iframe>
+      </div>
+    </div>
+  </aside>
+  <!-- /panel-resume -->
+
+
+  <!-- ── Contact panel ──────────────────────────────────────── -->
+  <aside class="panel" id="panel-contact" aria-label="Contact">
+    <div class="panel-header">
+      <div class="panel-title">Get in <span>touch</span></div>
+      <button class="close-btn" onclick="closeAll()" aria-label="Close panel">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="panel-body">
+      <p class="contact-intro">
+        I'm currently open to new opportunities in Technical Operations, Solutions Engineering,
+        and Developer Support. Drop me a message and I'll get back to you within 24 hours.
+      </p>
+
+      <!-- Form success state (shown after submission) -->
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Message sent</h3>
+        <p>Thanks for reaching out. I'll be in touch shortly.</p>
+      </div>
+
+      <!-- Direct contact links -->
+      <div class="contact-links">
+        <a class="contact-link-item" href="https://www.linkedin.com/in/saee-gore/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <div>
+            linkedin.com/in/saee-gore
+            <span class="contact-link-label">Connect on LinkedIn</span>
+          </div>
+        </a>
+        <a class="contact-link-item" href="https://github.com/saee-gore" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <div>
+            github.com/saee-gore
+            <span class="contact-link-label">View my GitHub</span>
+          </div>
+        </a>
+        <a class="contact-link-item" href="mailto:saee.a.gore@gmail.com">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div>
+            saee.a.gore@gmail.com
+            <span class="contact-link-label">Send a direct email</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </aside>
+  <!-- /panel-contact -->
+
+
+  <!-- JavaScript — loaded last so the DOM is ready -->
+  <script src="assets/js/main.js"></script>
+
+</body>
 </html>
